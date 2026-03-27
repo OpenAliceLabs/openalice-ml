@@ -1,0 +1,27 @@
+[package]
+name = "openalice-ml"
+version = "0.1.0"
+edition = "2021"
+description = "OpenAlice ML Service — embeddings, reranking, NER"
+
+[dependencies]
+# HTTP server
+axum = "0.8"
+tokio = { version = "1", features = ["full"] }
+tower-http = { version = "0.6", features = ["cors"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# ML models — fastembed handles embeddings + reranking via ONNX
+fastembed = "5.13"
+
+# GLiNER — zero-shot NER via ONNX (multilingual, any entity types)
+# Using local fork with ort version bumped from rc.9 to rc.11 (fastembed compat)
+gline-rs = { path = "gline-rs-fork" }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# Utils
+anyhow = "1"

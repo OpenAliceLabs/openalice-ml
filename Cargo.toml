@@ -1,0 +1,7 @@
+[workspace]
+resolver = "2"
+members = [
+    "services/embed-rerank",
+    "services/gateway",
+    # "services/ner" — separate ort version, build independently
+]
