@@ -239,8 +239,8 @@ struct CreateKeyRequest {
     token_limit_month: u64,
 }
 
-fn default_rate_day() -> u64 { 1000 }
-fn default_token_month() -> u64 { 1_000_000 }
+fn default_rate_day() -> u64 { 10_000 }      // Pro tier default
+fn default_token_month() -> u64 { 5_000_000 } // Pro tier default
 
 #[derive(Serialize)]
 struct CreateKeyResponse {
